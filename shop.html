@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فروشگاه — Sellora</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Sellora</a>
+      <div class="links">
+        <a href="signup.html" class="btn btn-primary">فروشگاه خودت رو بساز</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="shop-page">
+    <div class="container">
+      <div class="shop-header">
+        <h1 id="shop-name">فروشگاه</h1>
+        <p id="shop-url"></p>
+      </div>
+
+      <div id="products-grid" class="products-grid">
+        <div class="empty" style="grid-column: 1 / -1;">در حال بارگذاری...</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>

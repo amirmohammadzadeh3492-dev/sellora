@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ثبت‌نام — Sellora</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Sellora</a>
+      <div class="links">
+        <a href="index.html" class="btn btn-outline">بازگشت</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="form-page">
+    <div class="form-card">
+      <h2>فروشگاهت رو بساز</h2>
+      <p class="subtitle">فقط ۲ فیلد. تمام.</p>
+
+      <div id="error" class="error"></div>
+
+      <form id="signup-form">
+        <div class="field">
+          <label for="name">اسم فروشگاه</label>
+          <input type="text" id="name" placeholder="مثلاً شمع‌های مریم" required>
+        </div>
+        <div class="field">
+          <label for="password">رمز عبور</label>
+          <input type="password" id="password" placeholder="حداقل ۶ کاراکتر" required minlength="6">
+          <div class="hint">برای ورود دوباره به پنل لازمت می‌شه</div>
+        </div>
+        <div class="field">
+          <label for="slug">آدرس فروشگاه</label>
+          <input type="text" id="slug" placeholder="maryam" required pattern="[a-z0-9-]+">
+          <div class="hint">فقط حروف انگلیسی کوچک، عدد و خط تیره. مثلاً: maryam</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="submit-btn">
+          ساخت فروشگاه
+        </button>
+      </form>
+
+      <div style="margin-top: 24px; text-align: center; font-size: 13px; color: var(--gray-500);">
+        آدرس فروشگاهت: <span style="color: var(--primary);">sellora.ir/<span id="slug-preview">maryam</span></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/signup.js"></script>
+</body>
+</html>

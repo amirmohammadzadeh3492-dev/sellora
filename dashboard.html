@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>پنل فروشنده — Sellora</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Sellora</a>
+      <div class="links">
+        <a href="#" id="view-shop-link" class="btn btn-outline" target="_blank">دیدن فروشگاه</a>
+        <a href="index.html" class="btn btn-outline">خروج</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="dashboard">
+    <div class="container">
+      <div class="header">
+        <h1 id="shop-title">پنل فروشنده</h1>
+        <div id="shop-url" style="color: var(--gray-500); font-size: 14px;"></div>
+      </div>
+
+      <div class="grid-2">
+        <!-- ستون چپ: افزودن محصول -->
+        <div class="panel">
+          <h2>افزودن محصول</h2>
+          <div id="error" class="error"></div>
+          <form id="product-form">
+            <div class="field">
+              <label for="product-name">اسم محصول</label>
+              <input type="text" id="product-name" placeholder="مثلاً شمع معطر وانیل" required>
+            </div>
+            <div class="field">
+              <label for="product-price">قیمت (تومان)</label>
+              <input type="number" id="product-price" placeholder="250000" min="0" required>
+            </div>
+            <div class="field">
+              <label for="product-desc">توضیحات (اختیاری)</label>
+              <textarea id="product-desc" rows="3" placeholder="اگه خالی بذاری، AI خودش می‌نویسه"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" id="add-btn">
+              افزودن محصول + عکس AI
+            </button>
+          </form>
+        </div>
+
+        <!-- ستون راست: لیست محصولات -->
+        <div class="panel">
+          <h2>محصولات تو (<span id="products-count">0</span>)</h2>
+          <div id="products-list">
+            <div class="empty">هنوز محصولی اضافه نکردی</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

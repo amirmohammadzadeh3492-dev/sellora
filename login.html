@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ورود — Sellora</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Sellora</a>
+      <div class="links">
+        <a href="signup.html" class="btn btn-outline">ثبت‌نام</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="form-page">
+    <div class="form-card">
+      <h2>ورود به پنل</h2>
+      <p class="subtitle">آدرس فروشگاه و رمزت رو وارد کن</p>
+
+      <div id="error" class="error"></div>
+
+      <form id="login-form">
+        <div class="field">
+          <label for="slug">آدرس فروشگاه</label>
+          <input type="text" id="slug" placeholder="maryam" required>
+          <div class="hint">مثلاً اگه آدرس فروشگاهت sellora.ir/maryam هست، بزن maryam</div>
+        </div>
+
+        <div class="field">
+          <label for="password">رمز عبور</label>
+          <input type="password" id="password" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="submit-btn">
+          ورود
+        </button>
+      </form>
+
+      <div style="margin-top: 24px; text-align: center; font-size: 13px; color: var(--gray-500);">
+        حساب نداری؟ <a href="signup.html" style="color: var(--primary);">ثبت‌نام کن</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script>
+    document.getElementById("login-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const errorBox = document.getElementById("error");
+      const btn = document.getElementById("submit-btn");
+      errorBox.classList.remove("show");
+      btn.disabled = true;
+      btn.textContent = "در حال ورود...";
+
+      const slug = document.getElementById("slug").value.trim();
+      const password = document.getElementById("password").value;
+
+      try {
+        const res = await api.login(slug, password);
+        setToken(res.access_token, res.shop_slug, res.shop_name);
+        window.location.href = "dashboard.html";
+      } catch (err) {
+        errorBox.textContent = err.message;
+        errorBox.classList.add("show");
+        btn.disabled = false;
+        btn.textContent = "ورود";
+      }
+    });
+  </script>
+</body>
+</html>
